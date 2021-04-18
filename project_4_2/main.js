@@ -18,6 +18,7 @@ document.body.addEventListener('click', function (e) {
    const green = y / height * 100;
    const blue = ((x / width * 100) + (y / height * 100)) / 2;
 
-   document.body.style.backgroundColor = `rgb(${red}%, ${green}%, ${blue}%)`
+   document.body.style.backgroundColor = `rgb(${red}%, ${green}%, ${blue}%)`;
+   console.log(red, green, blue);
 
 })
