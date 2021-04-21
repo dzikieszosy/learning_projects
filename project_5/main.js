@@ -6,9 +6,9 @@ const password = "user";
 const message = "Please hire me! ;-) Have a good day!!!";
 const div = document.querySelector('.message');
 
-input.addEventListener('input', (e) => {
+input.addEventListener('input', function (e) {
    // console.log(e.target.value);
-   if (password === e.target.value) {
+   if (password === this.value) {
       div.textContent = message;
       document.getElementById('please').style.display = "inline-block";
    } else {
