@@ -6,10 +6,41 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Number range</title>
+   <style>
+      input {
+         font-size: 20px;
+         line-height: 20px;
+         font-family: ubuntu;
+         margin-bottom: 10px;
+      }
+
+      div {
+         font-size: 20px;
+         line-height: 20px;
+         font-family: ubuntu;
+         margin-top: 20px;
+      }
+   </style>
 </head>
 
 <body>
+   <input type="text" id="field1">
+   <input type="text" id="field2">
+   <input type="submit" value="Show" onclick="writeF()">
+   <div id="result"></div>
+   <script>
+      function writeF() {
+         const number1 = document.getElementById('field1').value;
+         const number2 = document.getElementById('field2').value;
+         let texttext = "";
 
+         for (i = number1; i <= number2; i++) {
+            texttext = texttext + i + " ";
+
+         }
+         document.getElementById('result').innerHTML = texttext;
+      }
+   </script>
 </body>
 
 </html>
