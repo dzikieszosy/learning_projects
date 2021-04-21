@@ -3,7 +3,7 @@
 const input = document.getElementById('pass');
 
 const password = "user";
-const message = "Please hire me! ;-) Have a good day!!!";
+const message = "Please hire me! ;-) Have a nice day!!!";
 const div = document.querySelector('.message');
 
 input.addEventListener('input', function (e) {
