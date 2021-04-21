@@ -36,13 +36,24 @@
          font-size: 40px;
          margin: 20px;
       }
+
+      p {
+         text-align: right;
+         font-size: 10px;
+      }
+
+      #please {
+         display: none;
+      }
    </style>
 </head>
 
 <body>
-   <label for="pass">Enter password: </label><input id="pass" type="text">
+   <label for="pass">Enter password*: </label><input id="pass" type="text">
    <div class="message"></div>
+   <p>*password: user</p>
    <script src="main.js"></script>
+   <img id="please" src="img/hireme.jpg" alt="Hire Me Please">
 </body>
 
 </html>
