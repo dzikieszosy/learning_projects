@@ -9,14 +9,40 @@
    <style>
       body {
          font-family: ubuntu;
-         font-size: 20px;
+         font-size: 1.5em;
       }
    </style>
 </head>
 
 <body>
-   <script>
+   <div id="clock"></div>
 
+   <script type="text/javascript">
+      function countdown() {
+         const today = new Date();
+
+         let day = today.getDate();
+         let month = today.getMonth() + 1;
+         let year = today.getFullYear();
+         let hour = today.getHours();
+         if (hour < 10) {
+            hour = "0" + hour;
+         }
+         let minute = today.getMinutes();
+         if (minute < 10) {
+            minute = "0" + minute;
+         }
+         let second = today.getSeconds();
+         if (second < 10) {
+            second = "0" + second;
+         };
+
+         document.getElementById('clock').innerHTML =
+            `dzień: ${day}, miesiąc: ${month}, rok: ${year} || ${hour}:${minute}:${second}`;
+
+         setTimeout('countdown()', 1000);
+      }
+      countdown();
    </script>
 </body>
 
