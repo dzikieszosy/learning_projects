@@ -6,10 +6,37 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Slider</title>
+   <style>
+      body {
+         background-color: #222;
+         font-size: 24px;
+         color: whitesmoke;
+         font-family: ubuntu;
+      }
+
+      img {
+         height: 300px;
+         width: auto;
+      }
+   </style>
 </head>
 
 <body>
+   <div id="slider"></div>
+   <script>
+      let number = Math.floor(Math.random() * 5) + 1;
 
+      function changeSlide() {
+         number++;
+         if (number > 5) number = 1;
+
+         let fileImg = `<img src="img${number}.jpg">`;
+         document.getElementById('slider').innerHTML = fileImg;
+
+         setTimeout('changeSlide()', 5000)
+      }
+      changeSlide();
+   </script>
 </body>
 
 </html>
