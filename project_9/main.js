@@ -14,19 +14,31 @@ const slideList = [{
 
 const image = document.querySelector('img.slider');
 const h1 = document.querySelector('h1.slider');
+const dots = [...document.querySelectorAll('.dots span')]; //zamiana na tablice
 
 // interfejs
 const time = 3000;
 let active = 0; //który slajd jest aktywny
 
+
+
+// implementacja
+
+const changeDot = () => {
+   // console.log('zmiana kropki');
+   const activeDot = dots.findIndex(dot => dot.classList.contains('active'));
+   dots[activeDot].classList.remove('active');
+   dots[active].classList.add('active');
+}
+
 const changeSlide = () => {
    active++; // tak żeby pierwszy był aktywny
    if (active === slideList.length) {
-      active = 0;
+      active = 0; //żeby wracało do początku
    }
    image.src = slideList[active].img;
    h1.textContent = slideList[active].text;
+
+   changeDot()
 }
 setInterval(changeSlide, time)
-
-// implementacja
