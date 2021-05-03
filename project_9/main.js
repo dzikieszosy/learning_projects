@@ -46,7 +46,7 @@ let indexInterval = setInterval(changeSlide, time)
 const keyChangeSlide = (e) => {
    // console.log(e.keyCode);
    if (e.keyCode == 37 || e.keyCode == 39) {
-      clearInterval(indexInterval);
+      clearInterval(indexInterval); // czyści tablice
       e.keyCode == 37 ? active-- : active++;
       if (active === slideList.length) {
          active = 0;
@@ -57,7 +57,7 @@ const keyChangeSlide = (e) => {
       h1.textContent = slideList[active].text;
 
       changeDot();
-      indexInterval = setInterval(changeSlide, time);
+      indexInterval = setInterval(changeSlide, time); //uruchamia ponownie tablice
    }
 }
 
