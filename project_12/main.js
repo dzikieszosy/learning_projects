@@ -5,4 +5,4 @@ const removeTask = (e) => {
    e.target.remove(); // wywala przycisk "usuń"
 }
 
-document.querySelectorAll('li button').forEach(item => item.addEventListener('click', removeTask)) // nasłuchiwanie na wszystkie button w li
+document.querySelectorAll('li button').forEach(item => item.addEventListener('click', removeTask)) // nasłuchiwanie na wszystkie button w li...
