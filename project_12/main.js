@@ -16,4 +16,4 @@ const mapString = arr.map(number => number + " osób"); //zwraca tablice ze stri
 arr.forEach((number, index) => arr[index] = number * 2); //przebudowanie tablicy tej którą mamy
 /////////////////////////////////
 
-document.querySelectorAll('li button').forEach(item => item.addEventListener('click', removeTask)) // nasłuchiwanie na wszystkie button w li
+document.querySelectorAll('li button').forEach(item => item.addEventListener('click', removeTask)) // nasłuchiwanie na wszystkie button w li...
