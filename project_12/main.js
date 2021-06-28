@@ -1,35 +1,44 @@
-// pobranie elementów
-const input = document.querySelector('input');
+const toDoList = [];
+
+const form = document.querySelector('form');
 const ul = document.querySelector('ul');
-const liElements = document.querySelectorAll('li');
-// funkcja usuwająca element
+const taskNumber = document.querySelector('h1 span');
+const listItems = document.getElementsByClassName('task');
+const input = document.querySelector('input');
+
 const removeTask = (e) => {
-   // console.log(event.target.textContent); //pobieranie tekstu z poszczególnych li
-   // e.target.parentNode.remove(); // usuwanie poszczególnych li za pomocą przycisku (parentNode)
-   e.target.parentNode.style.textDecoration = "line-through"; // przekreślenie elementu parentNode
-   e.target.remove(); // wywala przycisk "usuń"
+   e.target.parentNode.remove();
+   const index = e.target.parentNode.dataset.key;
+   toDoList.splice(index, 1)
+   console.log(toDoList);
+   taskNumber.textContent = listItems.length;
+   renderList();
+}
+
+
+const addTask = (e) => {
+   e.preventDefault()
+   const titleTask = input.value;
+   if (titleTask === "") return;
+   const task = document.createElement('li');
+   task.className = 'task';
+   task.innerHTML = titleTask + "<button>Usuń</button>";
+   toDoList.push(task)
+   renderList()
+
+   ul.appendChild(task);
+   input.value = "";
+   // const liItems = document.querySelectorAll('li.task').length;
+   taskNumber.textContent = listItems.length;
+   task.querySelector('button').addEventListener('click', removeTask);
 
 }
-//funkcja szukająca
-const serchTask = (e) => {
-   const serchText = e.target.value.toLowerCase();
-   let tasks = [...liElements]; //zamiana na tablice
-   tasks = tasks.filter(li => li.textContent.toLowerCase().includes(serchText));
-   // console.log(tasks);
+
+const renderList = () => {
    ul.textContent = "";
-   tasks.forEach(li => ul.appendChild(li));
+   toDoList.forEach((toDoElement, key) => {
+      toDoElement.dataset.key = key;
+      ul.appendChild(toDoElement);
+   })
 }
-////// TAKI TRENING FILTRA I F. MAP //////
-// const arr = [34, 219, 109, 2934, 12, 10, 29];
-// //filter
-// const oddNumbers = arr.filter((number) => number % 2); //zwraca nieparzyste liczby
-// const evenNumbers = arr.filter((number) => !(number % 2)); //zwraca parzyste liczby
-// //map - zwraca nową tablice z wartościami
-// const double = arr.map(number => number * 2); //zwraca tablice razy dwa
-// const mapString = arr.map(number => number + " osób"); //zwraca tablice ze stringiem
-// //forEach 
-// arr.forEach((number, index) => arr[index] = number * 2); //przebudowanie tablicy tej którą mamy
-/////////////////////////////////
-
-document.querySelectorAll('li button').forEach(item => item.addEventListener('click', removeTask)) // nasłuchiwanie na wszystkie button w li
-input.addEventListener('input', serchTask)
+form.addEventListener('submit', addTask)
